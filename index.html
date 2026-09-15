@@ -115,48 +115,65 @@
             font-weight: 600;
         }
 
-        /* --- GALLERY CARDS --- */
-        .gallery-item {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            background-color: #ffffff;
-            aspect-ratio: 4 / 3;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(15, 32, 39, 0.9) 100%);
-            color: #ffffff;
-            padding: 15px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-align: center;
-        }
-
         .stat-card {
             background: #ffffff;
             border-radius: 12px;
             padding: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
             text-align: center;
+        }
+
+        /* --- LUXURY CHAPTER GALLERY CARDS --- */
+        .chapter-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            background-color: #000;
+            aspect-ratio: 16 / 10;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+        }
+
+        .chapter-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: opacity 0.3s ease, transform 0.5s ease;
+        }
+
+        .chapter-card:hover img {
+            opacity: 0.95;
+            transform: scale(1.04);
+        }
+
+        .chapter-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(15, 32, 39, 0.85) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            color: #ffffff;
+        }
+
+        .chapter-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .chapter-count {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 600;
         }
 
         /* --- LIGHTBOX MODAL & Z-INDEX FIX --- */
@@ -169,7 +186,7 @@
         }
 
         .modal-fullscreen {
-            background-color: rgba(0, 0, 0, 0.92);
+            background-color: rgba(0, 0, 0, 0.94);
         }
         
         .carousel-item img {
@@ -295,13 +312,6 @@
             font-size: 2rem;
             margin: 0 auto 20px;
         }
-
-        @media (max-width: 576px) {
-            .success-popup-card {
-                padding: 30px 20px 25px;
-                width: 95%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -352,7 +362,8 @@
         <div class="container">
             <span class="property-badge mb-3 d-inline-block">For Sale</span>
             <h1 class="fw-bold display-5 text-white">46 Hearne Crescent, Ajax, ON</h1>
-            <p></p>
+            <p class="text-light mb-4">A stunning, versatile home featuring modern updates & income/in-law suite potential.</p>
+            
             <!-- Quick Specs Grid -->
             <div class="row g-3 justify-content-center text-dark max-width-800">
                 <div class="col-6 col-md-3">
@@ -376,7 +387,7 @@
                 <div class="col-6 col-md-3">
                     <div class="stat-card">
                         <i class="fa-solid fa-car text-primary fs-4 mb-1"></i>
-                        <h6 class="mb-0 fw-bold">2 Car Garage 4 park on driveway</h6>
+                        <h6 class="mb-0 fw-bold">2 Garage / 4 Parking</h6>
                     </div>
                 </div>
             </div>
@@ -436,376 +447,82 @@
             <div class="text-secondary">
                 <p>Welcome to 46 Hearne Cres, a spacious and lovingly maintained home offering an impressive and versatile layout in a highly convenient Ajax location. Situated on a 40 x 110 ft lot, this approximately 1,754 sq. ft. above-grade home features 3 bedrooms and 2 full bathrooms on the second floor, with additional finished basement space offering 3 rooms currently used as bedrooms, a full bathroom, separate kitchen, laundry and a separate entrance.</p>
                 
-                <p>The main floor offers an ideal layout for both everyday living and entertaining, with separate living and dining rooms, plus a dedicated family room providing additional privacy and a comfortable space to relax or entertain. A convenient powder room completes the main level. The spacious kitchen features a large window overlooking the breakfast area, allowing abundant natural sunlight to brighten the space. Generous windows throughout the home create a bright and welcoming atmosphere.</p>
+                <p>The main floor offers an ideal layout for both everyday living and entertaining, with separate living and dining rooms, plus a dedicated family room providing additional privacy and a comfortable space to relax or entertain. A convenient powder room completes the main level. The spacious kitchen features a large window overlooking the breakfast area, allowing abundant natural sunlight to brighten the space.</p>
                 
-                <p>The finished basement provides valuable flexibility for extended family, guests, recreation, a home office or other personal uses. With its separate entrance, kitchen and laundry facilities, it also offers potential for additional living or rental use, subject to applicable municipal requirements.</p>
-                
-                <p>Recent improvements include an <strong>upgrade to a 200-amp electrical service (2023)</strong>, <strong>basement washer and dryer (2023)</strong>, and <strong>main-floor washer (2024)</strong>. The home also features a 2-car garage with parking for an additional 2 vehicles on the driveway.</p>
-                
-                <p>Location is a true highlight. Public transit is conveniently located directly in front of the home, while schools, shopping, restaurants and everyday amenities are all within easy reach. Ajax GO Station is approximately a 10-minute drive away, and numerous retail and service options are conveniently located nearby.</p>
-                
-                <p class="mb-0">Meticulously cared for by the current owners, this home reflects a true pride of ownership. From the thoughtful layout to the well-maintained interiors, the care and attention given to the property are evident throughout. A rare opportunity to own a spacious and versatile home in a highly convenient Ajax location.</p>
+                <p>Recent improvements include an <strong>upgrade to a 200-amp electrical service (2023)</strong>, <strong>basement washer and dryer (2023)</strong>, and <strong>main-floor washer (2024)</strong>. Meticulously cared for by current owners, this home reflects a true pride of ownership.</p>
             </div>
         </section>
 
-        <!-- Photo Gallery Section -->
+        <!-- Chapterized Photo Gallery Section (Better UX for 58 Photos) -->
         <section id="photo-gallery" class="mb-5">
-            <h2 class="fw-bold text-dark mb-4 border-bottom pb-2">
-                <i class="fa-solid fa-camera me-2 text-primary"></i>Property Photo Gallery
-            </h2>
-            <div class="row g-3 g-md-4">
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(0)">
-                        <img src="images/Online(001of055).jpg" alt="Front Yard & Driveway" loading="lazy">
-                        <div class="gallery-caption">Exterior Front View</div>
+            <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-4">
+                <h2 class="fw-bold text-dark m-0">
+                    <i class="fa-solid fa-camera me-2 text-primary"></i>Photo Gallery Chapters
+                </h2>
+                <span class="badge bg-secondary">58 Total Photos</span>
+            </div>
+            <p class="text-muted mb-4">Explore the property by browsing through the curated visual categories below. Click any section to launch the photo tour.</p>
+
+            <!-- Chapter Cards Grid -->
+            <div class="row g-4">
+                <!-- Chapter 1: Exterior & Yard (Starts at index 0) -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="chapter-card" onclick="openLightbox(0)">
+                        <img src="images/Online(001of055).jpg" alt="Exterior & Yard" loading="lazy">
+                        <div class="chapter-overlay">
+                            <div class="chapter-title">Exterior & Yard</div>
+                            <div class="chapter-count"><i class="fa-solid fa-images me-1"></i> 8 Photos <i class="fa-solid fa-arrow-right ms-2"></i></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(1)">
-                        <img src="images/Online(002of055).jpg" alt="Front Yard & Driveway" loading="lazy">
-                        <div class="gallery-caption">Front Yard & Driveway</div>
+
+                <!-- Chapter 2: Main Floor (Starts at index 2) -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="chapter-card" onclick="openLightbox(2)">
+                        <img src="images/Online(005of055).jpg" alt="Main Floor Living & Kitchen" loading="lazy">
+                        <div class="chapter-overlay">
+                            <div class="chapter-title">Main Floor Living & Kitchen</div>
+                            <div class="chapter-count"><i class="fa-solid fa-images me-1"></i> 20 Photos <i class="fa-solid fa-arrow-right ms-2"></i></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(2)">
-                        <img src="images/Online(003of055).jpg" alt="Foyer & Entrance" loading="lazy">
-                        <div class="gallery-caption">Foyer & Entrance</div>
+
+                <!-- Chapter 3: Upper Level (Starts at index 22) -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="chapter-card" onclick="openLightbox(22)">
+                        <img src="images/Online(024of055).jpg" alt="Upper Level Bedrooms & Baths" loading="lazy">
+                        <div class="chapter-overlay">
+                            <div class="chapter-title">Upper Level & Bedrooms</div>
+                            <div class="chapter-count"><i class="fa-solid fa-images me-1"></i> 10 Photos <i class="fa-solid fa-arrow-right ms-2"></i></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(3)">
-                        <img src="images/Online(004of055).jpg" alt="Main Hallway & Staircase" loading="lazy">
-                        <div class="gallery-caption">Main Hallway & Staircase</div>
+
+                <!-- Chapter 4: Basement Suite (Starts at index 32) -->
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="chapter-card" onclick="openLightbox(32)">
+                        <img src="images/Online(034of055).jpg" alt="Basement Suite" loading="lazy">
+                        <div class="chapter-overlay">
+                            <div class="chapter-title">Basement Suite & Entrance</div>
+                            <div class="chapter-count"><i class="fa-solid fa-images me-1"></i> 10 Photos <i class="fa-solid fa-arrow-right ms-2"></i></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(4)">
-                        <img src="images/Online(005of055).jpg" alt="Living Room - Angle 1" loading="lazy">
-                        <div class="gallery-caption">Living Room - View 1</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(5)">
-                        <img src="images/Online(006of055).jpg" alt="Living Room - Angle 2" loading="lazy">
-                        <div class="gallery-caption">Living Room - View 2</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(6)">
-                        <img src="images/Online(007of055).jpg" alt="Living Room - Angle 3" loading="lazy">
-                        <div class="gallery-caption">Living Room - View 3</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(7)">
-                        <img src="images/Online(008of055).jpg" alt="Dining Area" loading="lazy">
-                        <div class="gallery-caption">Dining Area</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(8)">
-                        <img src="images/Online(009of055).jpg" alt="Open Concept Space" loading="lazy">
-                        <div class="gallery-caption">Open Concept Space</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(9)">
-                        <img src="images/Online(010of055).jpg" alt="Kitchen Overview" loading="lazy">
-                        <div class="gallery-caption">Kitchen Overview</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(10)">
-                        <img src="images/Online(011of055).jpg" alt="Kitchen & Fridge View" loading="lazy">
-                        <div class="gallery-caption">Kitchen & Fridge View</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(11)">
-                        <img src="images/Online(012of055).jpg" alt="Kitchen & Patio Area" loading="lazy">
-                        <div class="gallery-caption">Kitchen & Patio Area</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(12)">
-                        <img src="images/Online(013of055).jpg" alt="Stove & Backsplash Detail" loading="lazy">
-                        <div class="gallery-caption">Stove & Backsplash Detail</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(13)">
-                        <img src="images/Online(014of055).jpg" alt="Dining Nook" loading="lazy">
-                        <div class="gallery-caption">Dining Nook</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(14)">
-                        <img src="images/Online(015of055).jpg" alt="Dining Table Focus" loading="lazy">
-                        <div class="gallery-caption">Dining Table Focus</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(15)">
-                        <img src="images/Online(016of055).jpg" alt="Dining & Walkout" loading="lazy">
-                        <div class="gallery-caption">Dining & Walkout</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(16)">
-                        <img src="images/Online(017of055).jpg" alt="Family Room & Fireplace" loading="lazy">
-                        <div class="gallery-caption">Family Room & Fireplace</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(17)">
-                        <img src="images/Online(018of055).jpg" alt="Electric Fireplace Detail" loading="lazy">
-                        <div class="gallery-caption">Electric Fireplace Detail</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(18)">
-                        <img src="images/Online(019of055).jpg" alt="Living Room & Hallway" loading="lazy">
-                        <div class="gallery-caption">Living Room & Hallway</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(19)">
-                        <img src="images/Online(020of055).jpg" alt="Living Room Seating Area & TV" loading="lazy">
-                        <div class="gallery-caption">Living Room & Media Area</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(20)">
-                        <img src="images/Online(021of055).jpg" alt="Powder Room Vanity & Toilet" loading="lazy">
-                        <div class="gallery-caption">Main Level Powder Room</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(21)">
-                        <img src="images/Online(022of055).jpg" alt="Laundry Room with Washer & Dryer" loading="lazy">
-                        <div class="gallery-caption">Laundry Room & Sink</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(22)">
-                        <img src="images/Online(023of055).jpg" alt="Upper Level Hallway & Mirrored Closet" loading="lazy">
-                        <div class="gallery-caption">Upper Level Landing</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(23)">
-                        <img src="images/Online(024of055).jpg" alt="Primary Bedroom View 1" loading="lazy">
-                        <div class="gallery-caption">Primary Bedroom - View 1</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(24)">
-                        <img src="images/Online(025of055).jpg" alt="Primary Bedroom View 2" loading="lazy">
-                        <div class="gallery-caption">Primary Bedroom - View 2</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(25)">
-                        <img src="images/Online(026of055).jpg" alt="Primary Bedroom View 3" loading="lazy">
-                        <div class="gallery-caption">Primary Bedroom - View 3</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(26)">
-                        <img src="images/Online(027of055).jpg" alt="Walk-in Closet Storage" loading="lazy">
-                        <div class="gallery-caption">Walk-In Closet</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(27)">
-                        <img src="images/Online(028of055).jpg" alt="Bathroom Vanity and Shower Tub" loading="lazy">
-                        <div class="gallery-caption">Full Bathroom</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(28)">
-                        <img src="images/Online(029of055).jpg" alt="Second Bedroom with Desk Space" loading="lazy">
-                        <div class="gallery-caption">Second Bedroom / Office</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(29)">
-                        <img src="images/Online(030of055).jpg" alt="Upper Level Full Bathroom with Vanity & Shower" loading="lazy">
-                        <div class="gallery-caption">Upper Bathroom - Vanity & Bath</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(30)">
-                        <img src="images/Online(031of055).jpg" alt="Kids Bedroom with Pink Bed & Decor" loading="lazy">
-                        <div class="gallery-caption">Kids Bedroom - View 1</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(31)">
-                        <img src="images/Online(032of055).jpg" alt="Kids Bedroom Angle with Landing View" loading="lazy">
-                        <div class="gallery-caption">Kids Bedroom - View 2</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(32)">
-                        <img src="images/Online(033of055).jpg" alt="Separate Side Entrance Staircase" loading="lazy">
-                        <div class="gallery-caption">Separate Side Entrance</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(33)">
-                        <img src="images/Online(034of055).jpg" alt="Lower Level Kitchen & Dining Area" loading="lazy">
-                        <div class="gallery-caption">Lower Level Kitchen</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(34)">
-                        <img src="images/Online(035of055).jpg" alt="Lower Level Kitchen Counter & Appliances" loading="lazy">
-                        <div class="gallery-caption">Lower Kitchen & Appliances</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(35)">
-                        <img src="images/Online(036of055).jpg" alt="Lower Level Hallway & Entrance Door" loading="lazy">
-                        <div class="gallery-caption">Lower Hallway & Refrigerator</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(36)">
-                        <img src="images/Online(037of055).jpg" alt="Basement Bedroom with Bed & Seating" loading="lazy">
-                        <div class="gallery-caption">Basement Bedroom - View 1</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(37)">
-                        <img src="images/Online(038of055).jpg" alt="Basement Room with Desk & Storage Rack" loading="lazy">
-                        <div class="gallery-caption">Basement Bedroom - View 2</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(38)">
-                        <img src="images/Online(039of055).jpg" alt="Basement Bedroom" loading="lazy">
-                        <div class="gallery-caption">Basement Bedroom</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(39)">
-                        <img src="images/Online(040of055).jpg" alt="Basement Staircase and Hallway" loading="lazy">
-                        <div class="gallery-caption">Basement Staircase & Hallway</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(40)">
-                        <img src="images/Online(041of055).jpg" alt="Laundry and Mechanical Room" loading="lazy">
-                        <div class="gallery-caption">Laundry & Mechanical Room</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(41)">
-                        <img src="images/Online(042of055).jpg" alt="Basement Bathroom with Shower" loading="lazy">
-                        <div class="gallery-caption">Basement Bathroom with Shower</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(42)">
-                        <img src="images/Online(043of055).jpg" alt="Backyard Patio and Lawn" loading="lazy">
-                        <div class="gallery-caption">Backyard Patio & Lawn</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(43)">
-                        <img src="images/Online(044of055).jpg" alt="Exterior Rear View and Garden" loading="lazy">
-                        <div class="gallery-caption">Exterior Rear View & Garden</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(44)">
-                        <img src="images/Online(045of055).jpg" alt="Front Exterior and Driveway" loading="lazy">
-                        <div class="gallery-caption">Front Exterior & Driveway</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(45)">
-                        <img src="images/Online(046of055).jpg" alt="Aerial Front View of House" loading="lazy">
-                        <div class="gallery-caption">Aerial Front View of House</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(46)">
-                        <img src="images/Online(047of055).jpg" alt="Aerial View of Neighborhood Street" loading="lazy">
-                        <div class="gallery-caption">Aerial View of Neighborhood</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(47)">
-                        <img src="images/Online(048of055).jpg" alt="Top-Down Aerial Property Shot" loading="lazy">
-                        <div class="gallery-caption">Top-Down Aerial Property Shot</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(48)">
-                        <img src="images/Online(049of055).jpg" alt="Aerial view of backyard and red roof property" loading="lazy">
-                        <div class="gallery-caption">Aerial View - Rear Yard</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(49)">
-                        <img src="images/Online(050of055).jpg" alt="Aerial view of neighborhood street" loading="lazy">
-                        <div class="gallery-caption">Aerial View - Neighborhood Angle</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(50)">
-                        <img src="images/Online(051of055).jpg" alt="Direct overhead view of house and patio" loading="lazy">
-                        <div class="gallery-caption">Overhead View - Structure & Yard</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(51)">
-                        <img src="images/Online(052of055).jpg" alt="High altitude aerial view of neighborhood" loading="lazy">
-                        <div class="gallery-caption">Wide Aerial - Surrounding Area</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(52)">
-                        <img src="images/Online(053of055).jpg" alt="Aerial view of nearby park and school" loading="lazy">
-                        <div class="gallery-caption">Aerial View - Nearby School & Park</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(53)">
-                        <img src="images/Online(054of055).jpg" alt="Wide aerial overview with pin location" loading="lazy">
-                        <div class="gallery-caption">Wide Area Overview</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(54)">
-                        <img src="images/Online(055of055).jpg" alt="Aerial view of community facilities" loading="lazy">
-                        <div class="gallery-caption">Aerial View - School Grounds</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(55)">
-                        <img src="images/Twilight_1.jpg" alt="Front driveway and double garage at twilight" loading="lazy">
-                        <div class="gallery-caption">Exterior - Front Driveway (Twilight)</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(56)">
-                        <img src="images/Twilight_2.jpg" alt="Front entrance and brick exterior at twilight" loading="lazy">
-                        <div class="gallery-caption">Exterior - Front Entrance (Twilight)</div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="gallery-item" onclick="openLightbox(57)">
-                        <img src="images/Twilight_3.jpg" alt="Backyard patio and sunroom illuminated at twilight" loading="lazy">
-                        <div class="gallery-caption">Exterior - Rear Patio (Twilight)</div>
+
+                <!-- Chapter 5: Aerial & Twilight (Starts at index 42) -->
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="chapter-card" onclick="openLightbox(42)">
+                        <img src="images/Online(047of055).jpg" alt="Aerial & Twilight Views" loading="lazy">
+                        <div class="chapter-overlay">
+                            <div class="chapter-title">Aerial & Twilight Views</div>
+                            <div class="chapter-count"><i class="fa-solid fa-images me-1"></i> 16 Photos <i class="fa-solid fa-arrow-right ms-2"></i></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Book Appointment Section with Fully Responsive Google Calendar Embed -->
+        <!-- Book Appointment Section with Calendar Embed -->
         <section id="book-appointment" class="py-5 bg-white rounded-4 shadow-sm border p-4 p-md-5 mb-5">
             <div class="text-center mb-4">
                 <span class="property-badge mb-2 d-inline-block">Schedule a Tour</span>
@@ -840,9 +557,9 @@
                         <p class="text-muted small mb-3">Realtor, Century 21 Percy Fulton Ltd.</p>
                         <hr class="w-50 mx-auto text-muted">
                         <div class="text-start small px-2 mb-4">
-                            <p class="mb-2"><i class="fa-solid fa-phone text-primary me-2"></i> <a href="tel:+16478064932" class="text-decoration-none text-dark">+1 (647)806-4932 </a></p>
-                            <p class="mb-2"><i class="fa-solid fa-phone text-primary me-2"></i> <a href="tel:+14162988200" class="text-decoration-none text-dark">+1 (416)298-8200 </a></p>
-                            <p class="mb-2"><i class="fa-solid fa-envelope text-primary me-2"></i> <a href="mailto:agent@example.com" class="text-decoration-none text-dark">ratansrealty@gmail.com</a></p>
+                            <p class="mb-2"><i class="fa-solid fa-phone text-primary me-2"></i> <a href="tel:+16478064932" class="text-decoration-none text-dark">+1 (647) 806-4932</a></p>
+                            <p class="mb-2"><i class="fa-solid fa-phone text-primary me-2"></i> <a href="tel:+14162988200" class="text-decoration-none text-dark">+1 (416) 298-8200</a></p>
+                            <p class="mb-2"><i class="fa-solid fa-envelope text-primary me-2"></i> <a href="mailto:ratansrealty@gmail.com" class="text-decoration-none text-dark">ratansrealty@gmail.com</a></p>
                         </div>
                     </div>
                 </div>
@@ -851,7 +568,6 @@
                 <div class="col-lg-8">
                     <div class="card h-100 border-0 shadow-sm rounded-4 p-3 p-md-4 bg-light d-flex flex-column">
                         <h5 class="fw-bold mb-3"><i class="fa-solid fa-pen-to-square text-primary me-2"></i>Send a Message / Inquiry</h5>
-                        <!-- Responsive Google Form Embed Container -->
                         <div class="position-relative w-100 flex-grow-1" style="min-height: 520px;">
                             <iframe id="googleContactForm" src="https://docs.google.com/forms/d/e/1FAIpQLSc7hcd4V9ImgbIUh7cXML-Y1shZqxt9Rsbbv1YJ-IHMbrCMMg/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen="" loading="lazy">Loading…</iframe>
                         </div>
@@ -874,354 +590,65 @@
                 <div class="modal-body d-flex align-items-center justify-content-center p-0">
                     <div id="galleryCarousel" class="carousel slide w-100" data-bs-ride="false">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="images/Online(001of055).jpg" class="d-block w-100" alt="Exterior Front View">
-                                <div class="carousel-caption d-block">
-                                    <h5>Exterior Front View</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(002of055).jpg" class="d-block w-100" alt="Front Yard & Driveway">
-                                <div class="carousel-caption d-block">
-                                    <h5>Front Yard & Driveway</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(003of055).jpg" class="d-block w-100" alt="Foyer & Entrance">
-                                <div class="carousel-caption d-block">
-                                    <h5>Foyer & Entrance</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(004of055).jpg" class="d-block w-100" alt="Main Hallway & Staircase">
-                                <div class="carousel-caption d-block">
-                                    <h5>Main Hallway & Staircase</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(005of055).jpg" class="d-block w-100" alt="Living Room - Angle 1">
-                                <div class="carousel-caption d-block">
-                                    <h5>Living Room - View 1</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(006of055).jpg" class="d-block w-100" alt="Living Room - Angle 2">
-                                <div class="carousel-caption d-block">
-                                    <h5>Living Room - View 2</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(007of055).jpg" class="d-block w-100" alt="Living Room - Angle 3">
-                                <div class="carousel-caption d-block">
-                                    <h5>Living Room - View 3</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(008of055).jpg" class="d-block w-100" alt="Dining Area">
-                                <div class="carousel-caption d-block">
-                                    <h5>Dining Area</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(009of055).jpg" class="d-block w-100" alt="Open Concept Space">
-                                <div class="carousel-caption d-block">
-                                    <h5>Open Concept Space</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(010of055).jpg" class="d-block w-100" alt="Kitchen Overview">
-                                <div class="carousel-caption d-block">
-                                    <h5>Kitchen Overview</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(011of055).jpg" class="d-block w-100" alt="Kitchen & Fridge View">
-                                <div class="carousel-caption d-block">
-                                    <h5>Kitchen & Fridge View</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(012of055).jpg" class="d-block w-100" alt="Kitchen & Patio Area">
-                                <div class="carousel-caption d-block">
-                                    <h5>Kitchen & Patio Area</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(013of055).jpg" class="d-block w-100" alt="Stove & Backsplash Detail">
-                                <div class="carousel-caption d-block">
-                                    <h5>Stove & Backsplash Detail</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(014of055).jpg" class="d-block w-100" alt="Dining Nook">
-                                <div class="carousel-caption d-block">
-                                    <h5>Dining Nook</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(015of055).jpg" class="d-block w-100" alt="Dining Table Focus">
-                                <div class="carousel-caption d-block">
-                                    <h5>Dining Table Focus</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(016of055).jpg" class="d-block w-100" alt="Dining & Walkout">
-                                <div class="carousel-caption d-block">
-                                    <h5>Dining & Walkout</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(017of055).jpg" class="d-block w-100" alt="Family Room & Fireplace">
-                                <div class="carousel-caption d-block">
-                                    <h5>Family Room & Fireplace</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(018of055).jpg" class="d-block w-100" alt="Electric Fireplace Detail">
-                                <div class="carousel-caption d-block">
-                                    <h5>Electric Fireplace Detail</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(019of055).jpg" class="d-block w-100" alt="Living Room & Hallway">
-                                <div class="carousel-caption d-block">
-                                    <h5>Living Room & Hallway</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(020of055).jpg" class="d-block w-100" alt="Living Room Seating Area & TV">
-                                <div class="carousel-caption d-block">
-                                    <h5>Living Room & Media Area</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(021of055).jpg" class="d-block w-100" alt="Powder Room Vanity & Toilet">
-                                <div class="carousel-caption d-block">
-                                    <h5>Main Level Powder Room</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(022of055).jpg" class="d-block w-100" alt="Laundry Room with Washer & Dryer">
-                                <div class="carousel-caption d-block">
-                                    <h5>Laundry Room & Sink</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(023of055).jpg" class="d-block w-100" alt="Upper Level Hallway & Mirrored Closet">
-                                <div class="carousel-caption d-block">
-                                    <h5>Upper Level Landing</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(024of055).jpg" class="d-block w-100" alt="Primary Bedroom View 1">
-                                <div class="carousel-caption d-block">
-                                    <h5>Primary Bedroom - View 1</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(025of055).jpg" class="d-block w-100" alt="Primary Bedroom View 2">
-                                <div class="carousel-caption d-block">
-                                    <h5>Primary Bedroom - View 2</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(026of055).jpg" class="d-block w-100" alt="Primary Bedroom View 3">
-                                <div class="carousel-caption d-block">
-                                    <h5>Primary Bedroom - View 3</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(027of055).jpg" class="d-block w-100" alt="Walk-in Closet Storage">
-                                <div class="carousel-caption d-block">
-                                    <h5>Walk-In Closet</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(028of055).jpg" class="d-block w-100" alt="Bathroom Vanity and Shower Tub">
-                                <div class="carousel-caption d-block">
-                                    <h5>Full Bathroom</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(029of055).jpg" class="d-block w-100" alt="Second Bedroom with Desk Space">
-                                <div class="carousel-caption d-block">
-                                    <h5>Second Bedroom / Office</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(030of055).jpg" class="d-block w-100" alt="Upper Level Full Bathroom with Vanity & Shower">
-                                <div class="carousel-caption d-block">
-                                    <h5>Upper Bathroom - Vanity & Bath</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(031of055).jpg" class="d-block w-100" alt="Kids Bedroom with Pink Bed & Decor">
-                                <div class="carousel-caption d-block">
-                                    <h5>Kids Bedroom - View 1</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(032of055).jpg" class="d-block w-100" alt="Kids Bedroom Angle with Landing View">
-                                <div class="carousel-caption d-block">
-                                    <h5>Kids Bedroom - View 2</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(033of055).jpg" class="d-block w-100" alt="Separate Side Entrance Staircase">
-                                <div class="carousel-caption d-block">
-                                    <h5>Separate Side Entrance</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(034of055).jpg" class="d-block w-100" alt="Lower Level Kitchen & Dining Area">
-                                <div class="carousel-caption d-block">
-                                    <h5>Lower Level Kitchen</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(035of055).jpg" class="d-block w-100" alt="Lower Level Kitchen Counter & Appliances">
-                                <div class="carousel-caption d-block">
-                                    <h5>Lower Kitchen & Appliances</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(036of055).jpg" class="d-block w-100" alt="Lower Level Hallway & Entrance Door">
-                                <div class="carousel-caption d-block">
-                                    <h5>Lower Hallway & Refrigerator</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(037of055).jpg" class="d-block w-100" alt="Basement Bedroom with Bed & Seating">
-                                <div class="carousel-caption d-block">
-                                    <h5>Basement Bedroom - View 1</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(038of055).jpg" class="d-block w-100" alt="Basement Room with Desk & Storage Rack">
-                                <div class="carousel-caption d-block">
-                                    <h5>Basement Bedroom - View 2</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(039of055).jpg" class="d-block w-100" alt="Basement Bedroom">
-                                <div class="carousel-caption d-block">
-                                    <h5>Basement Bedroom</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(040of055).jpg" class="d-block w-100" alt="Basement Staircase and Hallway">
-                                <div class="carousel-caption d-block">
-                                    <h5>Basement Staircase & Hallway</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(041of055).jpg" class="d-block w-100" alt="Laundry and Mechanical Room">
-                                <div class="carousel-caption d-block">
-                                    <h5>Laundry & Mechanical Room</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(042of055).jpg" class="d-block w-100" alt="Basement Bathroom with Shower">
-                                <div class="carousel-caption d-block">
-                                    <h5>Basement Bathroom with Shower</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(043of055).jpg" class="d-block w-100" alt="Backyard Patio and Lawn">
-                                <div class="carousel-caption d-block">
-                                    <h5>Backyard Patio & Lawn</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(044of055).jpg" class="d-block w-100" alt="Exterior Rear View and Garden">
-                                <div class="carousel-caption d-block">
-                                    <h5>Exterior Rear View & Garden</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(045of055).jpg" class="d-block w-100" alt="Front Exterior and Driveway">
-                                <div class="carousel-caption d-block">
-                                    <h5>Front Exterior & Driveway</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(046of055).jpg" class="d-block w-100" alt="Aerial Front View of House">
-                                <div class="carousel-caption d-block">
-                                    <h5>Aerial Front View of House</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(047of055).jpg" class="d-block w-100" alt="Aerial View of Neighborhood Street">
-                                <div class="carousel-caption d-block">
-                                    <h5>Aerial View of Neighborhood</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(048of055).jpg" class="d-block w-100" alt="Top-Down Aerial Property Shot">
-                                <div class="carousel-caption d-block">
-                                    <h5>Top-Down Aerial Property Shot</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(049of055).jpg" class="d-block w-100" alt="Aerial view of backyard and red roof property">
-                                <div class="carousel-caption d-block">
-                                    <h5>Aerial View - Rear Yard</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(050of055).jpg" class="d-block w-100" alt="Aerial view of neighborhood street">
-                                <div class="carousel-caption d-block">
-                                    <h5>Aerial View - Neighborhood Angle</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(051of055).jpg" class="d-block w-100" alt="Direct overhead view of house and patio">
-                                <div class="carousel-caption d-block">
-                                    <h5>Overhead View - Structure & Yard</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(052of055).jpg" class="d-block w-100" alt="High altitude aerial view of neighborhood">
-                                <div class="carousel-caption d-block">
-                                    <h5>Wide Aerial - Surrounding Area</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(053of055).jpg" class="d-block w-100" alt="Aerial view of nearby park and school">
-                                <div class="carousel-caption d-block">
-                                    <h5>Aerial View - Nearby School & Park</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(054of055).jpg" class="d-block w-100" alt="Wide aerial overview with pin location">
-                                <div class="carousel-caption d-block">
-                                    <h5>Wide Area Overview</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Online(055of055).jpg" class="d-block w-100" alt="Aerial view of community facilities">
-                                <div class="carousel-caption d-block">
-                                    <h5>Aerial View - School Grounds</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Twilight_1.jpg" class="d-block w-100" alt="Front driveway and double garage at twilight">
-                                <div class="carousel-caption d-block">
-                                    <h5>Exterior - Front Driveway (Twilight)</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Twilight_2.jpg" class="d-block w-100" alt="Front entrance and brick exterior at twilight">
-                                <div class="carousel-caption d-block">
-                                    <h5>Exterior - Front Entrance (Twilight)</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/Twilight_3.jpg" class="d-block w-100" alt="Backyard patio and sunroom illuminated at twilight">
-                                <div class="carousel-caption d-block">
-                                    <h5>Exterior - Rear Patio (Twilight)</h5>
-                                </div>
-                            </div>
+                            <!-- All 58 Image Items Loaded Here for Seamless Carousel Navigation -->
+                            <div class="carousel-item active"><img src="images/Online(001of055).jpg" class="d-block w-100" alt="Exterior Front View"><div class="carousel-caption d-block"><h5>Exterior Front View</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(002of055).jpg" class="d-block w-100" alt="Front Yard & Driveway"><div class="carousel-caption d-block"><h5>Front Yard & Driveway</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(003of055).jpg" class="d-block w-100" alt="Foyer & Entrance"><div class="carousel-caption d-block"><h5>Foyer & Entrance</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(004of055).jpg" class="d-block w-100" alt="Main Hallway & Staircase"><div class="carousel-caption d-block"><h5>Main Hallway & Staircase</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(005of055).jpg" class="d-block w-100" alt="Living Room - View 1"><div class="carousel-caption d-block"><h5>Living Room - View 1</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(006of055).jpg" class="d-block w-100" alt="Living Room - View 2"><div class="carousel-caption d-block"><h5>Living Room - View 2</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(007of055).jpg" class="d-block w-100" alt="Living Room - View 3"><div class="carousel-caption d-block"><h5>Living Room - View 3</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(008of055).jpg" class="d-block w-100" alt="Dining Area"><div class="carousel-caption d-block"><h5>Dining Area</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(009of055).jpg" class="d-block w-100" alt="Open Concept Space"><div class="carousel-caption d-block"><h5>Open Concept Space</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(010of055).jpg" class="d-block w-100" alt="Kitchen Overview"><div class="carousel-caption d-block"><h5>Kitchen Overview</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(011of055).jpg" class="d-block w-100" alt="Kitchen & Fridge View"><div class="carousel-caption d-block"><h5>Kitchen & Fridge View</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(012of055).jpg" class="d-block w-100" alt="Kitchen & Patio Area"><div class="carousel-caption d-block"><h5>Kitchen & Patio Area</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(013of055).jpg" class="d-block w-100" alt="Stove & Backsplash Detail"><div class="carousel-caption d-block"><h5>Stove & Backsplash Detail</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(014of055).jpg" class="d-block w-100" alt="Dining Nook"><div class="carousel-caption d-block"><h5>Dining Nook</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(015of055).jpg" class="d-block w-100" alt="Dining Table Focus"><div class="carousel-caption d-block"><h5>Dining Table Focus</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(016of055).jpg" class="d-block w-100" alt="Dining & Walkout"><div class="carousel-caption d-block"><h5>Dining & Walkout</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(017of055).jpg" class="d-block w-100" alt="Family Room & Fireplace"><div class="carousel-caption d-block"><h5>Family Room & Fireplace</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(018of055).jpg" class="d-block w-100" alt="Electric Fireplace Detail"><div class="carousel-caption d-block"><h5>Electric Fireplace Detail</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(019of055).jpg" class="d-block w-100" alt="Living Room & Hallway"><div class="carousel-caption d-block"><h5>Living Room & Hallway</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(020of055).jpg" class="d-block w-100" alt="Living Room & Media Area"><div class="carousel-caption d-block"><h5>Living Room & Media Area</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(021of055).jpg" class="d-block w-100" alt="Main Level Powder Room"><div class="carousel-caption d-block"><h5>Main Level Powder Room</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(022of055).jpg" class="d-block w-100" alt="Laundry Room & Sink"><div class="carousel-caption d-block"><h5>Laundry Room & Sink</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(023of055).jpg" class="d-block w-100" alt="Upper Level Landing"><div class="carousel-caption d-block"><h5>Upper Level Landing</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(024of055).jpg" class="d-block w-100" alt="Primary Bedroom - View 1"><div class="carousel-caption d-block"><h5>Primary Bedroom - View 1</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(025of055).jpg" class="d-block w-100" alt="Primary Bedroom - View 2"><div class="carousel-caption d-block"><h5>Primary Bedroom - View 2</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(026of055).jpg" class="d-block w-100" alt="Primary Bedroom - View 3"><div class="carousel-caption d-block"><h5>Primary Bedroom - View 3</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(027of055).jpg" class="d-block w-100" alt="Walk-In Closet"><div class="carousel-caption d-block"><h5>Walk-In Closet</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(028of055).jpg" class="d-block w-100" alt="Full Bathroom"><div class="carousel-caption d-block"><h5>Full Bathroom</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(029of055).jpg" class="d-block w-100" alt="Second Bedroom / Office"><div class="carousel-caption d-block"><h5>Second Bedroom / Office</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(030of055).jpg" class="d-block w-100" alt="Upper Bathroom - Vanity & Bath"><div class="carousel-caption d-block"><h5>Upper Bathroom - Vanity & Bath</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(031of055).jpg" class="d-block w-100" alt="Kids Bedroom - View 1"><div class="carousel-caption d-block"><h5>Kids Bedroom - View 1</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(032of055).jpg" class="d-block w-100" alt="Kids Bedroom - View 2"><div class="carousel-caption d-block"><h5>Kids Bedroom - View 2</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(033of055).jpg" class="d-block w-100" alt="Separate Side Entrance"><div class="carousel-caption d-block"><h5>Separate Side Entrance</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(034of055).jpg" class="d-block w-100" alt="Lower Level Kitchen"><div class="carousel-caption d-block"><h5>Lower Level Kitchen</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(035of055).jpg" class="d-block w-100" alt="Lower Kitchen & Appliances"><div class="carousel-caption d-block"><h5>Lower Kitchen & Appliances</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(036of055).jpg" class="d-block w-100" alt="Lower Hallway & Refrigerator"><div class="carousel-caption d-block"><h5>Lower Hallway & Refrigerator</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(037of055).jpg" class="d-block w-100" alt="Basement Bedroom - View 1"><div class="carousel-caption d-block"><h5>Basement Bedroom - View 1</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(038of055).jpg" class="d-block w-100" alt="Basement Bedroom - View 2"><div class="carousel-caption d-block"><h5>Basement Bedroom - View 2</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(039of055).jpg" class="d-block w-100" alt="Basement Bedroom"><div class="carousel-caption d-block"><h5>Basement Bedroom</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(040of055).jpg" class="d-block w-100" alt="Basement Staircase & Hallway"><div class="carousel-caption d-block"><h5>Basement Staircase & Hallway</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(041of055).jpg" class="d-block w-100" alt="Laundry & Mechanical Room"><div class="carousel-caption d-block"><h5>Laundry & Mechanical Room</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(042of055).jpg" class="d-block w-100" alt="Basement Bathroom with Shower"><div class="carousel-caption d-block"><h5>Basement Bathroom with Shower</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(043of055).jpg" class="d-block w-100" alt="Backyard Patio & Lawn"><div class="carousel-caption d-block"><h5>Backyard Patio & Lawn</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(044of055).jpg" class="d-block w-100" alt="Exterior Rear View & Garden"><div class="carousel-caption d-block"><h5>Exterior Rear View & Garden</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(045of055).jpg" class="d-block w-100" alt="Front Exterior & Driveway"><div class="carousel-caption d-block"><h5>Front Exterior & Driveway</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(046of055).jpg" class="d-block w-100" alt="Aerial Front View of House"><div class="carousel-caption d-block"><h5>Aerial Front View of House</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(047of055).jpg" class="d-block w-100" alt="Aerial View of Neighborhood"><div class="carousel-caption d-block"><h5>Aerial View of Neighborhood</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(048of055).jpg" class="d-block w-100" alt="Top-Down Aerial Property Shot"><div class="carousel-caption d-block"><h5>Top-Down Aerial Property Shot</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(049of055).jpg" class="d-block w-100" alt="Aerial View - Rear Yard"><div class="carousel-caption d-block"><h5>Aerial View - Rear Yard</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(050of055).jpg" class="d-block w-100" alt="Aerial View - Neighborhood Angle"><div class="carousel-caption d-block"><h5>Aerial View - Neighborhood Angle</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(051of055).jpg" class="d-block w-100" alt="Overhead View - Structure & Yard"><div class="carousel-caption d-block"><h5>Overhead View - Structure & Yard</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(052of055).jpg" class="d-block w-100" alt="Wide Aerial - Surrounding Area"><div class="carousel-caption d-block"><h5>Wide Aerial - Surrounding Area</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(053of055).jpg" class="d-block w-100" alt="Aerial View - Nearby School & Park"><div class="carousel-caption d-block"><h5>Aerial View - Nearby School & Park</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(054of055).jpg" class="d-block w-100" alt="Wide Area Overview"><div class="carousel-caption d-block"><h5>Wide Area Overview</h5></div></div>
+                            <div class="carousel-item"><img src="images/Online(055of055).jpg" class="d-block w-100" alt="Aerial View - School Grounds"><div class="carousel-caption d-block"><h5>Aerial View - School Grounds</h5></div></div>
+                            <div class="carousel-item"><img src="images/Twilight_1.jpg" class="d-block w-100" alt="Exterior - Front Driveway (Twilight)"><div class="carousel-caption d-block"><h5>Exterior - Front Driveway (Twilight)</h5></div></div>
+                            <div class="carousel-item"><img src="images/Twilight_2.jpg" class="d-block w-100" alt="Exterior - Front Entrance (Twilight)"><div class="carousel-caption d-block"><h5>Exterior - Front Entrance (Twilight)</h5></div></div>
+                            <div class="carousel-item"><img src="images/Twilight_3.jpg" class="d-block w-100" alt="Exterior - Rear Patio (Twilight)"><div class="carousel-caption d-block"><h5>Exterior - Rear Patio (Twilight)</h5></div></div>
                         </div>
 
                         <!-- Forward & Backward Navigation Buttons -->
@@ -1237,7 +664,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 text-center mt-auto">
@@ -1262,7 +688,7 @@
             }
         }
 
-        // Open Modal Carousel on clicked Image index
+        // Open Modal Carousel starting at specific chapter index
         function openLightbox(index) {
             const galleryModalElement = document.getElementById('galleryModal');
             const galleryModal = bootstrap.Modal.getOrCreateInstance(galleryModalElement);
@@ -1304,10 +730,8 @@
 
         googleFormIframe.addEventListener('load', function() {
             if (!hasLoadedOnce) {
-                // This is the initial load when the page loads, so ignore it.
                 hasLoadedOnce = true;
             } else {
-                // Subsequent loads mean the form has been submitted and redirected to the response page.
                 showFormSuccessPopup();
             }
         });
@@ -1320,7 +744,6 @@
         function closeFormSuccessPopup() {
             const popup = document.getElementById('formSuccessPopup');
             popup.classList.remove('active');
-            // Reset iframe state so they can submit again if needed
             hasLoadedOnce = false;
             googleFormIframe.src = googleFormIframe.src;
         }
